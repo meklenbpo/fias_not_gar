@@ -1,0 +1,1 @@
+hex_letters = [hex(x)[2:3] for x in range(16)]
