@@ -11,3 +11,21 @@ unnecessary files.
 Once the processing is complete, the data is ready to be fed into the
 main processing module.
 """
+
+import json
+import requests
+
+
+def get_update_status():
+    """Makes a request to a pre-defined FIAS update service and returns
+    the response."""
+    upd_url = r'http://fias.nalog.ru/WebServices/Public/GetLastDownloadFileInfo'
+    r = requests.get(upd_url)
+    try:
+        r_json = r.json()
+    except json.decoder.JSONDecodeError:
+        print('Response is not valid JSON')
+        if r.text == '':
+            print('Response is empty string')
+        return {}
+    return r_json
