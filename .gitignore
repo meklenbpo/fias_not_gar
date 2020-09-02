@@ -4,3 +4,9 @@
 # Python cache
 *.pyc
 __pycache__
+
+# Virtual environment
+venv
+
+# VS Code stuff
+.vscode
