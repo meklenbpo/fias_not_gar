@@ -9,3 +9,8 @@ upd = fd.get_update_status()
 
 for key in upd:
     print(f'{key} : {upd[key]}')
+
+
+vdate = fd.get_version_date(upd)
+
+print(f'Version date identified successfully: {vdate}')

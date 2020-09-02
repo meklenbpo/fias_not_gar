@@ -29,3 +29,15 @@ def get_update_status():
             print('Response is empty string')
         return {}
     return r_json
+
+def get_version_date(status):
+    """Takes FIAS status JSON as input and returns formatted FIAS date
+    string."""
+    try:
+        v_id = status['VersionId']
+    except KeyError:
+        print('Version date key not found.')
+        raise
+    vdate = str(v_id)
+    vdate_form = vdate[:4]+'-'+vdate[4:6]+'-'+vdate[6:8]
+    return vdate_form
