@@ -15,17 +15,17 @@ from Compare import Compare
 from MergeChLog import MergeChangeLog
 from Info import CollectInfo
 
-workspace = '/Volumes/SamsungT5/GIS/03_FIAS_analysis/'
-cv        = workspace + '17_version0802/'
-oldv_deli = workspace + '16_version0701/output/ready/fias.csv'
+workspace = '/Volumes/SamsungT5/FIAS/'
+cv        = workspace + '30_version0902/'
+oldv_deli = workspace + '29_version0803/output/ready/fias.csv'
 
 # Init master script
 master = Process('Master FIAS conversion script')
 create_folder_structure(cv)
 
 # Init subprocesses
-master.add_sub(ImportAO(cv+'data/ADDROBJ0802.XML', cv+'output/ao.fea'))
-master.add_sub(ImportH(cv+'data/HOUSE0802.XML', cv+'output/rawh/'))
+master.add_sub(ImportAO(cv + 'data/ADDROBJ.XML', cv + 'output/ao.fea'))
+master.add_sub(ImportH(cv + 'data/HOUSE.XML', cv + 'output/rawh/'))
 
 cv = cv + 'output/'
 cvc = cv + 'chlog/'
